@@ -37,17 +37,17 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('$hello'):
+    if message.content == ('$hello'):
         await message.channel.send('Hello!')
 
-    if message.content.startswith('$alex'):
+    if message.content == ('$alex'):
         await message.channel.send('https://media0.giphy.com/media/zdnTlBkg3I32E/giphy.gif?cid=ecf05e47a3wng8zqtlgaspauk2r0nll6tvodu3fy651rzdoh&rid=giphy.gif&ct=g')
 
-    if message.content.startswith('$quote'):
+    if message.content == ('$quote'):
         quote = get_quote()
         await message.channel.send(quote)
 
-    if message.content.startswith('$gif'):
+    if message.content == ('$gif'):
         gif = get_gif()
         await message.channel.send(gif)
 
