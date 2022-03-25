@@ -6,12 +6,14 @@ import random
 
 client = discord.Client()
 
+#get random quote from zenquotes API
 def get_quote():
     response = requests.get("https://zenquotes.io/api/random")
     json_data = json.loads(response.text)
     quote = "\"" + json_data[0]['q'] + "\" -" + json_data[0]['a']
     return(quote)
 
+#get random gif from top 50 trending gifs from Tenor API
 def get_gif():
     apikey = os.environ.get('TENOR_KEY')
     limit = 50
@@ -26,7 +28,8 @@ def get_gif():
     gif_url = gif['media'][0]['gif']['url']
     print(gif_url)
     return(gif_url)
-    
+
+#on start up    
 @client.event
 async def on_ready():
     print('we have logged in as {0.user}'.format(client))
